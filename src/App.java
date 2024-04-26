@@ -4,7 +4,9 @@ public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("첫 번째 숫자를 입력하세요 :");
+        // 반복문 사용
+        while (true) {
+            System.out.print("첫 번째 숫자를 입력하세요 :");
         int num1 = sc.nextInt();
         System.out.print("두 번째 숫자를 입력하세요: ");
         int num2 = sc.nextInt();
@@ -31,12 +33,27 @@ public class App {
             case '/':
                 //분모가 0이면 안됨
                 if (num2 == 0) {
+                    System.out.println("분모는 0이 될 수 없습니다.");
                     break;
                 }
                result = (double) num1 / (double) num2;
+                break;
+
+            default:
+                System.out.println("알맞은 사칙연산이 아닙니다");
         }
 
         System.out.println("결과: " + result );
 
+            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료)");
+            String repeat = sc.next();
+
+            // exit 를 입력받으면 반복 종료
+
+            if (repeat.equals("exit")) {
+                break;
+            }
+        }
+        System.out.println("계산을 종료합니다");
     }
 }
