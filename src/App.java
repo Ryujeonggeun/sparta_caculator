@@ -13,6 +13,30 @@ public class App {
         char sachic = sc.next().charAt(0);
 
 
+        double result = 0;
+
+        switch (sachic) {
+            case '+':
+                result = num1 + num2;
+                break;
+
+            case '-':
+                result = num1 - num2;
+                break;
+
+            case '*':
+                result = num1 * num2;
+                break;
+
+            case '/':
+                //분모가 0이면 안됨
+                if (num2 == 0) {
+                    break;
+                }
+               result = (double) num1 / (double) num2;
+        }
+
+        System.out.println("결과: " + result );
 
     }
 }
