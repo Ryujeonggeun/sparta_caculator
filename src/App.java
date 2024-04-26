@@ -61,9 +61,17 @@ public class App {
                 arr.remove(0);
             }
 
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회) ");
+            String inquiry = sc.next();
+            if (inquiry.equals("inquiry")) {
+                for (Integer num : arr) {
+                    System.out.println(num);
+                }
+            }
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String repeat = sc.next();
-            System.out.println(arr.toString());
+
             // exit 를 입력받으면 반복 종료
             if (repeat.equals("exit")) {
                 break;
