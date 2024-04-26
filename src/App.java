@@ -51,20 +51,18 @@ public class App {
 
         System.out.println("결과: " + result );
 
-            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료)");
-            String repeat = sc.next();
-
-
-            // 배열이 10개 가 넘으면 가장 먼저 저장된 값을 새로운 연산 결과로 바꿈
-            // 총 숫자 > 10 이면, set(count % 10 , result) 로 변겅, 이렇게하면 20이 넘어가도 값을 저장 가능
-            if (arr.size() >= 10) {
-                arr.remove(0);
-                arr.add(result);
-            } else {
-                arr.add(result);
-            }
+            arr.add(result);
 
             count++;
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까?(remove 입력시 삭제) ");
+            String remove = sc.next();
+            if (remove.equals("remove")) {
+                arr.remove(0);
+            }
+
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+            String repeat = sc.next();
             System.out.println(arr.toString());
             // exit 를 입력받으면 반복 종료
             if (repeat.equals("exit")) {
