@@ -3,13 +3,16 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        Calculator calculator = new Calculator();
         Scanner sc = new Scanner(System.in);
         //배열 생성
         ArrayList<Integer> arr = new ArrayList<Integer>();
         //count(결과값의 개수) 변수 생성
         int count = 0;
+        int result = 0;
 
         // 반복문 사용
+
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요 :");
         int num1 = sc.nextInt();
@@ -18,39 +21,12 @@ public class App {
 
         System.out.print("사칙연산 기호를 입력하세요: ");
         char sachic = sc.next().charAt(0);
-
-
-        int result = 0;
-
-        switch (sachic) {
-            case '+':
-                result = num1 + num2;
-                break;
-
-            case '-':
-                result = num1 - num2;
-                break;
-
-            case '*':
-                result = num1 * num2;
-                break;
-
-            case '/':
-                //분모가 0이면 안됨
-                if (num2 == 0) {
-                    System.out.println("분모는 0이 될 수 없습니다.");
-                    break;
-                }
-                 result = num1 / num2;
-                break;
-
-            default:
-                System.out.println("알맞은 사칙연산이 아닙니다");
-                 break;//count가 올라가지 않도록 break 해준다
-        }
-
+        // 사칙연산 메소드
+        result =   calculator.calculate(num1,num2,sachic);
         System.out.println("결과: " + result );
 
+
+        //리스트에 추가
             arr.add(result);
 
             count++;
