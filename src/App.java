@@ -55,15 +55,24 @@ public class App {
             String repeat = sc.next();
 
 
-            arr.add(result);
+            // 배열이 10개 가 넘으면 가장 먼저 저장된 값을 새로운 연산 결과로 바꿈
+            // 총 숫자 > 10 이면, set(count % 10 , result) 로 변겅, 이렇게하면 20이 넘어가도 값을 저장 가능
+            if (arr.size() >= 10) {
+                arr.remove(count  % 10);
+                arr.add(result);
+            } else {
+                arr.add(result);
+            }
+
             count++;
+            System.out.println(arr.toString());
             // exit 를 입력받으면 반복 종료
             if (repeat.equals("exit")) {
                 break;
+
             }
 
-            // 배열이 10개 가 넘으면 가장 먼저 저장된 값을 새로운 연산 결과로 바꿈
-            // 총 숫자 > 10 이면, set(count % 10 , result) 로 변겅, 이렇게하면 20이 넘어가도 값을 저장 가능
+
 
         }
         System.out.println("계산을 종료합니다");
