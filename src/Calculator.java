@@ -2,14 +2,61 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Calculator {
+    //static, final 활용
+    private static final double PI = 3.14;
+
+    /* 원의 넓이 결과를 저장하는 컬렉션 타입의 필드 선언 및 생성 */
+   private ArrayList<Double> circleList;
+
+
     private ArrayList<Integer> arrayList;
     Calculator() {
          this.arrayList = new ArrayList<>();
+         this.circleList = new ArrayList<>();
     }
     Scanner sc = new Scanner(System.in);
 
+    public void calculateCircleArea(double radius) {
+        double result =  radius * radius * PI;
+        circleList.add(result);
+        System.out.println("결과: " + result);
+    }
 
 
+
+
+    // circleList 의 Getter, Setter 메서드
+    public ArrayList<Double> getCircleList() {
+        return circleList;
+    }
+
+    public void setCircleList(ArrayList<Double> circleList) {
+        this.circleList = circleList;
+    }
+
+    //circleList 의 조회 삭제 메서드
+
+    public void removeCircleResult() {
+        System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까?(remove 입력시 삭제) ");
+        String remove = sc.next();
+        if (remove.equals("remove")) {
+            circleList.remove(0);
+        }
+    }
+    public void circleInquiry() {
+        System.out.println("저장된 원의 넓이");
+        for (Double num : circleList) {
+            System.out.println(num);
+
+        }
+    }
+
+
+
+
+
+
+    //  ArrayList 의 Getter, Setter 메서드
     public ArrayList<Integer> getArrayList() {
         return arrayList;
     }
@@ -18,8 +65,11 @@ public class Calculator {
             this.arrayList = arrayList;
     }
 
+
+
+
+    // arrayList 조회 삭제 메서드
     public void removeResult() {
-        // 간접 접근을 통해 필드에 접근하여 수정하기(Setter 메서드)
         System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까?(remove 입력시 삭제) ");
         String remove = sc.next();
         if (remove.equals("remove")) {
