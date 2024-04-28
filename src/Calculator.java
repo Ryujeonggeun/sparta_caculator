@@ -2,9 +2,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Calculator {
+    private ArrayList<Integer> arrayList;
+    Calculator() {
+         this.arrayList = new ArrayList<>();
+    }
     Scanner sc = new Scanner(System.in);
 
-    private ArrayList<Integer> arrayList = new ArrayList<Integer>();
+
 
     public ArrayList<Integer> getArrayList() {
         return arrayList;
