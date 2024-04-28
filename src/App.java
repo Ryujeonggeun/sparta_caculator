@@ -22,8 +22,12 @@ public class App {
         System.out.print("사칙연산 기호를 입력하세요: ");
         char sachic = sc.next().charAt(0);
         // 사칙연산 메소드
-        result =   calculator.calculate(num1,num2,sachic);
-        System.out.println("결과: " + result );
+            try {
+                result =   calculator.calculate(num1,num2,sachic);
+            } catch (OurException e) {
+                System.out.println(e.getMessage());
+            }
+            System.out.println("결과: " + result );
 
 
         //리스트에 추가
