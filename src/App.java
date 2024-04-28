@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Calculator calculator = new Calculator();
         Scanner sc = new Scanner(System.in);
         //배열 생성
@@ -21,17 +21,11 @@ public class App {
 
         System.out.print("사칙연산 기호를 입력하세요: ");
         char sachic = sc.next().charAt(0);
+
+
         // 사칙연산 메소드
-            try {
-                result =   calculator.calculate(num1,num2,sachic);
-            } catch (OurException e) {
-                System.out.println(e.getMessage());
-            }
-            System.out.println("결과: " + result );
-
-
-        //리스트에 추가
-            arr.add(result);
+        calculator.calculate(num1, num2,sachic);
+        arr = calculator.getArrayList();
 
             count++;
             // 간접 접근을 통해 필드에 접근하여 수정하기(Setter 메서드)

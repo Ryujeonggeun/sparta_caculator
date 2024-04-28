@@ -1,5 +1,18 @@
+import java.util.ArrayList;
+
 public class Calculator {
-    public int calculate(int num1, int num2, char saChic) throws OurException {
+
+    private ArrayList<Integer> arrayList = new ArrayList<Integer>();
+
+    public ArrayList<Integer> getArrayList() {
+        return arrayList;
+    }
+
+    public void setArrayList(ArrayList<Integer> arrayList) {
+            this.arrayList = arrayList;
+    }
+
+    public void calculate(int num1, int num2, char saChic) throws OurException {
         int result = 0;
         String msg = "";
         switch (saChic) {
@@ -29,12 +42,17 @@ public class Calculator {
                 break;//count가 올라가지 않도록 break 해준다
         }
 
-        if (msg.isEmpty()) {
-            System.out.println("결과: " + result);
-        } else {
-           throw new OurException(msg);
+        try {
+            if (msg.isEmpty()) {
+                System.out.println("결과: " + result);
+            } else {
+                throw new OurException(msg);
+            }
+        } catch (OurException e) {
+            System.out.println(e.getMessage());
         }
-        return result;
+        arrayList.add(result);
+
     }
 
 
