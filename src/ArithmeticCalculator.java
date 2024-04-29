@@ -18,6 +18,7 @@ Scanner sc = new Scanner(System.in);
     SubtractOperator subtractOperator;
     MultiplyOperator multiplyOperator;
     DivideOperator divideOperator;
+    ModOperator modOperator;
     //생성자 호출시 초기화
     ArithmeticCalculator() {
         this.arrayList = new ArrayList<>();
@@ -25,7 +26,7 @@ Scanner sc = new Scanner(System.in);
         subtractOperator = new SubtractOperator();
         multiplyOperator = new MultiplyOperator();
         divideOperator = new DivideOperator();
-
+        modOperator = new ModOperator();
     }
 
 
@@ -108,6 +109,8 @@ Scanner sc = new Scanner(System.in);
                 }
                 result = divideOperator.operate(num1, num2);
                 break;
+            case '%':
+                result = modOperator.operate(num1,num2);
 
             default:
                 msg = "알맞은 사칙연산이 아닙니다";
