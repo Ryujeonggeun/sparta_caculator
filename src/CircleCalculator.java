@@ -1,6 +1,12 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class CircleCalculator extends Calculator {
+public class CircleCalculator implements Calculator {
+
+
+
+    private double radius;
+    Scanner sc = new Scanner(System.in);
     //상수 선언
     private static final double PI = 3.14;
     //배열 생성
@@ -18,11 +24,19 @@ public class CircleCalculator extends Calculator {
     public void setCircleList(ArrayList<Double> circleList) {
         this.circleList = circleList;
     }
+    // 반지름 겟셋
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
 
 
     // 원넓이 계산 + 리스트 추가
     @Override
-    public double circleCalculator(double radius) {
+    public double cal() {
         double result =  radius * radius * PI;
         System.out.println("결과: " + result);
         circleList.add(result);

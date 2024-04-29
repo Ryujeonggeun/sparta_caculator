@@ -1,6 +1,17 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class ArithmeticCalculator extends Calculator {
+
+public class ArithmeticCalculator implements Calculator {
+Scanner sc = new Scanner(System.in);
+
+
+    private int num1;
+    private int num2;
+
+
+
+    private char saChic;
 
     private ArrayList<Integer> arrayList;
     AddOperator addOperator;
@@ -28,6 +39,31 @@ public class ArithmeticCalculator extends Calculator {
         this.arrayList = arrayList;
     }
 
+    // number  Getter, Setter
+    public int getNum1() {
+        return num1;
+    }
+
+    public void setNum1(int num1) {
+        this.num1 = num1;
+    }
+
+
+
+    public int getNum2() {
+        return num2;
+    }
+    public void setNum2(int num2) {
+        this.num2 = num2;
+    }
+    // 사칙 겟셋
+    public char getSaChic() {
+        return saChic;
+    }
+
+    public void setSaChic(char saChic) {
+        this.saChic = saChic;
+    }
 
 
     // arrayList 조회 삭제 메서드
@@ -48,7 +84,7 @@ public class ArithmeticCalculator extends Calculator {
         }
     }
     @Override
-    public int arithmeticCalculator (int num1, int num2, char saChic) {
+    public double cal () {
         int result = 0;
         String msg = "";
         switch (saChic) {
