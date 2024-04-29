@@ -2,11 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-        Calculator calculator = new Calculator();
+    public static void main(String[] args) {
+       CircleCalculator circleCalculator = new CircleCalculator();
+       ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
         Scanner sc = new Scanner(System.in);
-        //배열 생성
-        ArrayList<Integer> arr = new ArrayList<Integer>();
 
         //사칙연산 OR 원의 넓이 선택
         System.out.println("사칙연산 / 원의넓이 선택 ");
@@ -18,8 +17,9 @@ public class App {
 
                 System.out.print("반지름을 입력하세요");
                 int radius = sc.nextInt();
-                calculator.calculateCircleArea(radius);
-                calculator.circleInquiry();
+                circleCalculator.circleCalculator(radius);
+                circleCalculator.removeCircleResult();
+                circleCalculator.circleInquiry();
                 System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
                 String repeat = sc.next();
                 // exit 를 입력받으면 반복 종료
@@ -42,12 +42,12 @@ public class App {
             char sachic = sc.next().charAt(0);
 
             // 사칙연산 메소드
-            calculator.calculate(num1, num2, sachic);
-            arr = calculator.getArrayList();
+            arithmeticCalculator.arithmeticCalculator(num1, num2, sachic);
+
             // 리무브 메서드
-            calculator.removeResult();
+            arithmeticCalculator.removeResult();
             //inquiry 메서드
-            calculator.inquiry();
+            arithmeticCalculator.inquiry();
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String repeat = sc.next();
