@@ -3,10 +3,18 @@ import java.util.ArrayList;
 public class ArithmeticCalculator extends Calculator {
 
     private ArrayList<Integer> arrayList;
-
+    AddOperator addOperator;
+    SubtractOperator subtractOperator;
+    MultiplyOperator multiplyOperator;
+    DivideOperator divideOperator;
     //생성자 호출시 초기화
     ArithmeticCalculator() {
         this.arrayList = new ArrayList<>();
+        addOperator = new AddOperator();
+        subtractOperator = new SubtractOperator();
+        multiplyOperator = new MultiplyOperator();
+        divideOperator = new DivideOperator();
+
     }
 
 
@@ -40,20 +48,20 @@ public class ArithmeticCalculator extends Calculator {
         }
     }
     @Override
-    public int arithmeticCalculator(int num1, int num2, char saChic) {
+    public int arithmeticCalculator (int num1, int num2, char saChic) {
         int result = 0;
         String msg = "";
         switch (saChic) {
             case '+':
-                result = num1 + num2;
+                result = addOperator.operate(num1,num2);
                 break;
 
             case '-':
-                result = num1 - num2;
+                result = subtractOperator.operate(num1,num2);
                 break;
 
             case '*':
-                result = num1 * num2;
+                result = multiplyOperator.operate(num1,num2);
                 break;
 
             case '/':
@@ -62,7 +70,7 @@ public class ArithmeticCalculator extends Calculator {
                     msg = "분모는 0이 될 수 없습니다.";
                     break;
                 }
-                result = num1 / num2;
+                result = divideOperator.operate(num1, num2);
                 break;
 
             default:
