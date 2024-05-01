@@ -6,6 +6,7 @@ public class App {
        CircleCalculator circleCalculator = new CircleCalculator();
        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
         Scanner sc = new Scanner(System.in);
+        int count = 0;
 
         //사칙연산 OR 원의 넓이 선택
         System.out.println("사칙연산 / 원의넓이 선택 ");
@@ -29,7 +30,6 @@ public class App {
                 }
             }
         }
-
 
         // 사칙연산 계산
         if (choice.equals("사칙연산")) {
@@ -57,8 +57,11 @@ public class App {
             if (repeat.equals("exit")) {
                 break;
             }
+            count++;
         }
         }
+
+
 
         System.out.println("계산을 종료합니다");
     }

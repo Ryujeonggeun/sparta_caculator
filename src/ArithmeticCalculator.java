@@ -126,6 +126,7 @@ Scanner sc = new Scanner(System.in);
         } catch (OurException e) {
             System.out.println(e.getMessage());
         }
+
         arrayList.add(result);
 
         return result;
